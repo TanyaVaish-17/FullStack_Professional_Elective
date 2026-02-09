@@ -1,20 +1,28 @@
-import './App.css'
-import './components/Header.jsx';
-import Header from './components/Header';
-import Registration from './components/Registration.jsx';
-import Footer from './components/Footer.jsx';
+import { Wrapper } from "./components/Wrapper";
+import { UserCard } from "./components/UserCard";
 function App() {
+  const users = [{
+    name : "Virat Kohli",
+    Role : "Batsman",
+    country : "India"
+  },
+{
+    name : "  Ms.Dhoni",
+    Role : "Bowler",
+    country : "India"
+  }
 
-  const y=[1234,2026];
-  const c={name:"Google",location:"Banglore",year:"1968"};
+]
   return (
     <div>
-      <Header title="My first react app"/>
-      <Header title="studying props"/>
-      <Footer year={y} company={c}/>
-      
+     <h1>User Dashboard</h1>
+     <Wrapper title= "userList">
+
+      {users.map((data)=>(<UserCard data={data}/>))}
+     </Wrapper>
+
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
