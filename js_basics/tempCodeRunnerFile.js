@@ -1,5 +1,5 @@
-const color=["Red","Green","Blue"];
-color.forEach((i)=>console.log(i));
-for (const i in color){
-    console.log(i,color[i]);
-}
+const number=[1,2,3];
+const newNumber=number.map(function(n){
+    return n*2;
+});
+console.log(newNumber);
