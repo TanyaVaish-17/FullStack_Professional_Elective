@@ -1,0 +1,166 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    #0f2027,
+    #203a43,
+    #2c5364,
+    #6a11cb,
+    #2575fc
+  );
+  animation: gradientMove 15s ease infinite;
+  background-size: 400% 400%;
+  z-index: -2;
+}
+
+@keyframes gradientMove {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-25%, -25%); }
+  100% { transform: translate(0,0); }
+}
+
+/* ===== FLOATING BLUR BLOBS (3D EFFECT) ===== */
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #7f00ff55, transparent);
+  filter: blur(120px);
+  animation: floatBlob 10s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes floatBlob {
+  from { transform: translate(-100px, -100px); }
+  to { transform: translate(200px, 150px); }
+}
+
+/* ===== MAIN CONTAINER ===== */
+
+.app-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* ===== HEADINGS ===== */
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* ===== TOTALS CARD ===== */
+
+.totals {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.total-card {
+  flex: 1;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+
+  background: rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.total-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+/* ===== FORM ===== */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg,#6a11cb,#2575fc);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* ===== TRANSACTION LIST ===== */
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.transaction:hover {
+  transform: translateX(6px);
+}
+
+.income {
+  border-left: 5px solid #00ff9f;
+}
+
+.expense {
+  border-left: 5px solid #ff4d6d;
+}
+
+.delete-btn {
+  background: #ff4d6d;
+}
+
+.delete-btn:hover {
+  background: #ff1e4d;
+}
