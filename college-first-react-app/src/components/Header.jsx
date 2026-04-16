@@ -11,4 +11,3 @@ export default function Header({title}){
 
 
 
-// have to make a react app by using props
